@@ -7,6 +7,7 @@
 //
 
 #import "UIFont+ChangeSystemFont.h"
+#import <objc/runtime.h>
 
 @implementation UIFont (ChangeSystemFont)
 
