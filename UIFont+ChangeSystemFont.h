@@ -10,6 +10,6 @@
 
 @interface UIFont (ChangeSystemFont)
 
-//+ (UIFont *)changedSystemFontOfSize:(CGFloat)fontSize;
++ (UIFont *)changedSystemFontOfSize:(CGFloat)fontSize;
 
 @end

@@ -10,18 +10,20 @@
 
 @implementation UIFont (ChangeSystemFont)
 
-//+(void)load
-//{
-//    Method newMethod = class_getClassMethod([self class], @selector(changedSystemFontOfSize:));
-//    Method oldMethod = class_getClassMethod([self class], @selector(systemFontOfSize:));
-//    
-//    //交换方法
-//    method_exchangeImplementations(newMethod, oldMethod);
-//}
-//
-//+ (UIFont *)changedSystemFontOfSize:(CGFloat)fontSize;
-//{
-//    return [UIFont fontWithName:@"Arial Rounded MT Bold" size:fontSize];
-//}
++(void)load
+{
+    Method newMethod = class_getClassMethod([self class], @selector(changedSystemFontOfSize:));
+    Method oldMethod = class_getClassMethod([self class], @selector(systemFontOfSize:));
+    
+    //exchange method
+    method_exchangeImplementations(newMethod, oldMethod);
+}
+
++ (UIFont *)changedSystemFontOfSize:(CGFloat)fontSize;
+{
+    // Usage: replace the font family name with what you want, for example, you can replace font family name with "Arial Rounded MT Bold" like the following codes.
+    NSString* newSystemFontName = @"Arial Rounded MT Bold";
+    return [UIFont fontWithName:newSystemFontName size:fontSize];
+}
 
 @end
